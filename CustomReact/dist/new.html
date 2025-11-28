@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>I Love YOU </title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --pink:#ff4d7e;
+    --soft:#ffd7e6;
+    --white: #ffffff;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: radial-gradient(circle at 10% 20%, rgba(255,77,126,0.06), transparent 8%),
+                linear-gradient(180deg, var(--bg), #07101a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    color:var(--white);
+  }
+
+  .wrap{
+    width:min(920px, 98%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:16px;
+    padding:36px;
+    text-align:center;
+    box-shadow: 0 14px 40px rgba(2,6,23,0.6);
+    overflow:hidden;
+    transform: translateY(20px);
+    opacity:0;
+    animation: appear 700ms ease-out forwards;
+  }
+
+  @keyframes appear {
+    to { transform: translateY(0); opacity:1; }
+  }
+
+  .line {
+    height:6px;
+    width:120px;
+    background: linear-gradient(90deg, transparent, rgba(255,77,126,0.35), transparent);
+    margin: 0 auto 18px;
+    border-radius:999px;
+  }
+
+  .headline{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+
+  .i-love{
+    font-weight:700;
+    font-size:20px;
+    color:rgba(255,255,255,0.95);
+    letter-spacing:0.6px;
+  }
+
+  /* heart using CSS (keeps things simple and compatible) */
+  .heart {
+    width:84px;
+    height:84px;
+    position:relative;
+    transform: rotate(-45deg);
+    margin:0 6px;
+    display:inline-block;
+    animation: beat 1000ms ease-in-out infinite;
+  }
+  .heart::before,
+  .heart::after{
+    content:"";
+    position:absolute;
+    width:84px;
+    height:84px;
+    background: linear-gradient(180deg, var(--pink), #ff8aa0);
+    border-radius:50%;
+    top:0;
+    left:0;
+    box-shadow: 0 8px 20px rgba(255,77,126,0.18);
+  }
+  .heart::after{ left:42px; top:0; }
+  .heart > .square{
+    position:absolute;
+    width:84px;
+    height:84px;
+    left:21px;
+    top:21px;
+    background: linear-gradient(180deg, var(--pink), #ff8aa0);
+    transform: rotate(45deg);
+    border-radius:10px;
+  }
+  @keyframes beat {
+    0% { transform: rotate(-45deg) scale(1); }
+    30% { transform: rotate(-45deg) scale(1.12); }
+    60% { transform: rotate(-45deg) scale(0.98); }
+    100% { transform: rotate(-45deg) scale(1); }
+  }
+
+  
+  @keyframes floaty {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+
+  .sub {
+    margin-top:10px;
+    color:rgba(255,255,255,0.8);
+    font-size:14px;
+  }
+
+  /* small pulse glow behind the heart for effect */
+  .glow {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:360px;
+    height:160px;
+    filter: blur(40px);
+    background: radial-gradient(closest-side, rgba(255,77,126,0.14), transparent 40%);
+    z-index:0;
+    pointer-events:none;
+    margin-top:52px;
+    opacity:0.9;
+  }
+
+  /* responsive tweaks */
+  @media (max-width:520px){
+    .heart { width:64px; height:64px; }
+    .heart::after { left:32px; }
+    .heart::before, .heart::after { width:64px; height:64px; }
+    .heart > .square { width:64px; height:64px; left:16px; top:16px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap" role="img" aria-label="I Love YOU">
+    <div class="glow" aria-hidden="true"></div>
+
+    <div class="line" aria-hidden="true"></div>
+
+    <div class="headline" style="position:relative;z-index:2">
+      <div class="i-love">I Love</div>
+
+      <div class="heart" aria-hidden="true">
+        <div class="square"></div>
+      </div>
+
+      <div class="you">You</div>
+    </div>
+
+    <div class="sub">You are my Life Yasmeen I can't live without you❤️</div>
+  </div>
+
+</body>
+</html>
